@@ -15,23 +15,54 @@ function CardCounter() {
     const decreaseDivider = () => setDivider(divider - 1);
 
   return (
-    <div>
-      <h2 style={{ position: 'absolute', top: '40%', left: '45%'}}>Value:</h2>
-      <button class="btn btn-success btn-lg" style={{ position: 'absolute', top: '50%', left: '46%', justifyContent: "flex-start"}}>{count}</button>
+  <div
+    style={{
+      height: '100vh',
+      padding: '2rem',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '2rem',
+    }}
+  >
+    {/* Count Value */}
+    <h1>Value: {count}</h1>
 
-      <button class="btn btn-info btn-lg" style={{ position: 'absolute', top: '70%', left: '32.3%'}}>{multiplier}</button>
-      <button class="btn btn-info btn-lg" style={{ position: 'absolute', top: '70%', left: '61.4%'}}>{divider}</button>
-      <div style={{ position: 'relative', height: '100vh'}}>
-        <button onClick={multiply} type="button" class="btn btn-outline-info btn-lg" style={{ position: 'absolute', top: '60%', left: '30%'}}>Multiply *</button>
-        <button onClick={increaseMultiplier} type="button" class="btn btn-outline-light" style={{ position: 'absolute', top: '69%', left: '28%'}}>+</button>
-        <button onClick={decreaseMultiplier} type="button" class="btn btn-outline-light" style={{ position: 'absolute', top: '69%', left: '36.3%'}}>-</button>
+    {/* Action Buttons */}
+    <div
+      style={{
+        display: 'flex',
+        gap: '4rem',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+      }}
+    >
+      {/* Multiply Section */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <button onClick={multiply} className="btn btn-outline-info btn-lg">
+          Multiply × {multiplier}
+        </button>
+        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+          <button onClick={increaseMultiplier} className="btn btn-outline-light">+</button>
+          <button onClick={decreaseMultiplier} className="btn btn-outline-light">−</button>
+        </div>
+      </div>
 
-        <button onClick={divide} type="button" class="btn btn-outline-primary btn-lg" style={{ position: 'absolute', top: '60%', left: '60%'}}>Divide /</button>
-        <button onClick={increaseDivider} type="button" class="btn btn-outline-light" style={{ position: 'absolute', top: '69%', left: '57.8%'}}>+</button>
-        <button onClick={decreaseDivider} type="button" class="btn btn-outline-light" style={{ position: 'absolute', top: '69%', left: '65.8%'}}>-</button>
+      {/* Divide Section */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <button onClick={divide} className="btn btn-outline-primary btn-lg">
+          Divide ÷ {divider}
+        </button>
+        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+          <button onClick={increaseDivider} className="btn btn-outline-light">+</button>
+          <button onClick={decreaseDivider} className="btn btn-outline-light">−</button>
+        </div>
       </div>
     </div>
-  );
+  </div>
+);
+
 }
 
 export default CardCounter;
